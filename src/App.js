@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 import { Hole } from "./components/hole/Hole.js";
-import { StartGame } from "./components/startGame/StartGame.js";
+import { Home } from "./components/home/Home.js";
 
 function App() {
   let initialPlayers = localStorage.getItem('players');
@@ -18,7 +18,11 @@ function App() {
     <main className="App">
       <Routes>
         <Route path="/holes/:id" element={<Hole />} />
-        <Route players={players} addPlayers={addPlayers} path="/" element={<StartGame />} />
+        <Route path="/" element={
+        <Home 
+          players={players}
+          addPlayers={addPlayers}
+        />} />
       </Routes>
     </main>
   );

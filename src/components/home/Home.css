@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+}
+
+.gallery {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 40px;
+}
+
+.galleryImage {
+  background-color: rgba(3, 177, 244, 0.05);
+  border: 1px solid rgb(8, 21, 101);
+  border-radius: 15px;
+  position: relative;
+  width: 200px;
+}
+
+.galleryImage img {
+  border-radius: 15px 15px 0 0;
+}
+
+.galleryImage p {
+  color: rgb(8, 21, 101);
+  font-size: 12px;
+  font-weight: bold;
+  padding-left: 10px;
+}
