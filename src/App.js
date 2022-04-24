@@ -10,11 +10,15 @@ function App() {
 
   const [players, setPlayers ] = useState(initialPlayers);
 
+  const addPlayers = (input) => {
+    setPlayers(input)
+  }
+
   return (
     <main className="App">
       <Routes>
         <Route path="/holes/:id" element={<Hole />} />
-        <Route path="/" element={<StartGame />} />
+        <Route players={players} addPlayers={addPlayers} path="/" element={<StartGame />} />
       </Routes>
     </main>
   );
