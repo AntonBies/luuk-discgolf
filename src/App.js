@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import './App.css';
 import { Hole } from "./components/hole/Hole.js";
+import { StartGame } from "./components/startGame/StartGame.js";
 
 function App() {
   let initialPlayers = localStorage.getItem('players');
@@ -13,6 +14,7 @@ function App() {
     <main className="App">
       <Routes>
         <Route path="/holes/:id" element={<Hole />} />
+        <Route path="/" element={<StartGame />} />
       </Routes>
     </main>
   );
