@@ -26,7 +26,7 @@ export const AddPlayerForm = ({addPlayer}) => {
     <>
       <form onSubmit={handleSubmit}>
         <div className="addPlayer">
-          <input type="text" value={name} onChange={handleChange} />
+          <input className="input-player" type="text" value={name} onChange={handleChange} />
           <button type="submit">Toevoegen</button>
         </div>
     </form>

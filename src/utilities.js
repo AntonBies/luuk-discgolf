@@ -1,5 +1,5 @@
 let nextId = localStorage.getItem('nextId') && Number(localStorage.getItem('nextId'));
-nextId = nextId || 2;
+nextId = nextId || 0;
 export const generateId = () => {
   const result = nextId;
   nextId += 1;

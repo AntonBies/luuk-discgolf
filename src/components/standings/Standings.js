@@ -13,7 +13,7 @@ export const Standings = ({player, holes, currentHole}) => {
     <tr>
       <td>{player.name}</td>
       <td>{par}</td>
-      <td>{isNaN(throws) ? "Vul eerst de scores op deze hole in" : throws}</td>
+      <td>{isNaN(throws) ? "Vul eerst de scores t/m deze hole in" : throws}</td>
       <td>{isNaN(throws) ? "N/A" : throws - par}</td>
     </tr>
   );

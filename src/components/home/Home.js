@@ -8,6 +8,13 @@ import './Home.css';
 export const Home = ({players, addPlayer, removePlayer, holes}) => {
   const initialPlayers = players && players.length;
 
+  const removeData = () => {
+    const confirm = window.confirm("Weet je zeker dat je alle data wilt verwijderen?");
+    if (!confirm) return;
+    localStorage.clear();
+    window.location.reload();
+  }
+
   return (
     <>
       <h1>Luuk's Discgolf course Frontenpark Maastricht</h1>
@@ -15,9 +22,12 @@ export const Home = ({players, addPlayer, removePlayer, holes}) => {
         <h2>Spelers</h2>
         {!initialPlayers ? <p>Voeg spelers toe</p> : players.map(el => <Player key={el.id} name={el.name} id={el.id}removePlayer={removePlayer} />)}
         <AddPlayerForm addPlayer={addPlayer} />
-        <Link to="/holes/01">
-          <button className="start">Start</button>
-        </Link>
+        <div className="space-between">
+          <Link to="/holes/01">
+            <button className="button">Start</button>
+          </Link>
+          <button className="button" onClick={removeData}>Verwijder alle opgeslagen data</button>
+        </div>
       </section>
       <h2>Holes</h2>
       <section className="gallery">
