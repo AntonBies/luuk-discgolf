@@ -6,3 +6,12 @@ img {
 section {
   margin-top: 50px;
 }
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom-nav button {
+  min-width: 150px;
+}

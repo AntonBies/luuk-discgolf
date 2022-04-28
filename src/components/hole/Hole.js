@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { Scores } from '../scores/Scores.js';
 import { Standings } from '../standings/Standings.js';
 
@@ -7,15 +7,20 @@ import "./Hole.css";
 
 export const Hole = ({players, holes}) => {
   const { holeId } = useParams();
-  const [cheat, setCheat] = useState(false);
   const currentHole = holes.find(el => el.hole === holeId);
   const initialPlayers = players && players.length;
+  const [updatedScore, setUpdatedScore] = useState('');
+
+  let prevId = `0${Number(holeId) - 1}`.slice(-2);
+  let nextId = `0${Number(holeId) + 1}`.slice(-2);
+  if (!holes.find((el) => el.hole === prevId)) prevId = null;
+  if (!holes.find((el) => el.hole === nextId)) nextId = null;
 
   const updateScore = (playerId, score) => {
     currentHole.scores[playerId] = score;
     const newHoles = [...holes];
     localStorage.setItem('holes', JSON.stringify(newHoles));
-    setCheat(`${playerId}${score}`);
+    setUpdatedScore(`${holeId}-${playerId}-${score}`);
   }
   
   return (
@@ -53,7 +58,7 @@ export const Hole = ({players, holes}) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {players.map(player => <Standings key={player.id} player={player} holes={holes} currentHole={currentHole} cheat={cheat} />)}
+                  {players.map(player => <Standings key={player.id} player={player} holes={holes} currentHole={currentHole} updatedScore={updatedScore} />)}
                 </tbody>
               </table>
             </section>
@@ -61,6 +66,17 @@ export const Hole = ({players, holes}) => {
         ) :
           <p>Er zijn nog geen spelers ingevoerd voor dit spel.</p>
       }
+      <section className="bottom-nav">
+        <Link to={prevId ? `/holes/${prevId}` : '/'}>
+          <button>BACK</button>
+        </Link>
+        <Link to="/">
+          <button>HOME</button>
+        </Link>
+        <Link to={nextId ? `/holes/${nextId}` : '/end'}>
+          <button>NEXT</button>
+        </Link>
+      </section>
     </>
   );
 }

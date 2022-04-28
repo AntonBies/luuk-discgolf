@@ -17,7 +17,7 @@ export const Home = ({players, addPlayer, removePlayer, holes}) => {
 
   return (
     <>
-      <h1>Luuk's Discgolf course Frontenpark Maastricht</h1>
+      <h1>Discgolf Frontenpark Maastricht</h1>
       <section className="players">
         <h2>Spelers</h2>
         {!initialPlayers ? <p>Voeg spelers toe</p> : players.map(el => <Player key={el.id} name={el.name} id={el.id}removePlayer={removePlayer} />)}

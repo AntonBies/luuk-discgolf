@@ -12,12 +12,3 @@
 input.input-player {
   width: 200px;
 }
-
-button {
-  background-color: rgb(10, 102, 194);
-  border: none;
-  border-radius: 20px;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  padding: 12px;
-}
