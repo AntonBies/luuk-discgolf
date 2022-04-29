@@ -14,7 +14,7 @@ export const Scores = ({player, currentHole, updateScore}) => {
     <tr>
       <td>{player.name}</td>
       <td>{currentHole.par}</td>
-      <td><input onChange={handleChange} value={playerScore}></input></td>
+      <td><input className="input-score" onChange={handleChange} value={playerScore}></input></td>
       <td>{isNaN(holeScore) ? "N/A" : holeScore}</td>
     </tr>
   );
