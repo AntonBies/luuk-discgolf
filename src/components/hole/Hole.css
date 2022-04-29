@@ -3,7 +3,7 @@ img {
   width: 100%;
 }
 
-input {
+input.input-score{
   max-width: 50px;
 }
 
